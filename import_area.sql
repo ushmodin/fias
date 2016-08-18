@@ -1,4 +1,4 @@
-insert into area (name,typ,code,region_id,guid,okato,updated,status)
+insert into areas (name,typ,code,region_id,guid,okato,updated,status)
   SELECT s.formalname,s.shortname,s.areacode,r.id,s.aoguid,s.okato,now(),'A'
   FROM addrobj s
        join regions r on r.guid = s.parentguid
@@ -7,11 +7,11 @@ insert into area (name,typ,code,region_id,guid,okato,updated,status)
         and s.currstatus = 0
         and not EXISTS (
           select 1
-            from area a
+            from areas a
            where a.guid = s.aoguid
         )
 
-update area t
+update areas t
   set name = s.formalname, code = s.areacode, typ = s.shortname, region_id = r.id, updated = now(), status = 'A'
  from addrobj s
   join regions r on r.guid = s.parentguid
@@ -25,7 +25,7 @@ WHERE 1=1
     or r.id <> t.region_id
     or t.status <> 'A');
 
-UPDATE area as t
+UPDATE areas as t
 set status = 'N', updated = now()
 WHERE not exists (SELECT 1
                   FROM addrobj s

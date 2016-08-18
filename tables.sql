@@ -9,7 +9,7 @@ create table regions (
   status VARCHAR(1)
 );
 
-create table area (
+create table areas (
   id SERIAL PRIMARY KEY,
   name VARCHAR(120),
   typ VARCHAR(10),
@@ -25,7 +25,7 @@ create table places (
   id SERIAL PRIMARY KEY,
   name VARCHAR(120),
   typ VARCHAR(10),
-  area_id INTEGER REFERENCES area(id),
+  area_id INTEGER REFERENCES areas(id),
   region_id integer REFERENCES regions(id),
   code VARCHAR(3),
   guid VARCHAR(36),

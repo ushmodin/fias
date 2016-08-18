@@ -26,7 +26,7 @@ insert into places (name,typ,code,area_id,region_id,guid,okato,updated,status)
       JOIN parents pr on pr.rootguid = s.aoguid and pr.aolevel = 1
       join regions r on r.guid = pr.aoguid
       left JOIN parents pa on pa.rootguid = s.aoguid and pa.aolevel = 3
-      left join area a on a.guid = pa.aoguid
+      left join areas a on a.guid = pa.aoguid
     where 1=1
       and s.aolevel in (4,6,90)
       and s.currstatus = 0
@@ -71,7 +71,7 @@ update places p
     JOIN parents pr on pr.rootguid = s.aoguid and pr.aolevel = 1
     join regions r on r.guid = pr.aoguid
     left JOIN parents pa on pa.rootguid = s.aoguid and pa.aolevel = 3
-    left join area a on a.guid = pa.aoguid
+    left join areas a on a.guid = pa.aoguid
   where 1=1
     and s.aolevel in (4,6,90)
     and s.currstatus = 0
