@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 @GrabConfig(systemClassLoader=true)
 @Grab(group='org.postgresql', module='postgresql', version='9.3-1101-jdbc3')
 import javax.xml.parsers.SAXParserFactory
